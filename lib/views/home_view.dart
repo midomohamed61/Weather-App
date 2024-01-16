@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather/model/weather_model.dart';
 import 'package:weather/views/search_view.dart';
 import 'package:weather/widgets/noWeatherBody.dart';
 import 'package:weather/widgets/weather_info_body.dart';
@@ -27,7 +28,7 @@ class _HomeViewState extends State<HomeView> {
               icon: Icon(Icons.search)),
         ],
       ),
-      body: WeatherInfoBody(),
+      body: WeatherModel == null?  NoWeatherody() : WeatherInfoBody() ,
     );
   }
 }

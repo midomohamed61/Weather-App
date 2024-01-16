@@ -1,4 +1,9 @@
+import 'dart:developer';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:weather/model/weather_model.dart';
+import 'package:weather/services/weather_services.dart';
 
 class SearchView extends StatefulWidget {
   const SearchView({super.key});
@@ -18,9 +23,9 @@ class _SearchViewState extends State<SearchView> {
         padding: const EdgeInsets.symmetric(horizontal:16),
         child: Center(
           child: TextFormField(
-            onChanged: (value){
-              
-            },
+            onChanged: (value) async {
+              Navigator.of(context).pop();
+              },
             decoration: InputDecoration(
               contentPadding: EdgeInsets.symmetric(vertical: 32,horizontal: 16),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(16),
@@ -38,3 +43,4 @@ class _SearchViewState extends State<SearchView> {
     );
   }
 }
+WeatherModel? weatherModel;

@@ -20,3 +20,11 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+
+// cubit pattern steps
+// -----------
+// create states
+// create cubit
+// provide cubit
+// integrate cubit
+// triggrt cubit
