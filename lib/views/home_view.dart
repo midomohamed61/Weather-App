@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather/cubit/get_weather_cubit/get_weather_cubit.dart';
 import 'package:weather/model/weather_model.dart';
 import 'package:weather/views/search_view.dart';
 import 'package:weather/widgets/noWeatherBody.dart';
@@ -28,7 +30,20 @@ class _HomeViewState extends State<HomeView> {
               icon: Icon(Icons.search)),
         ],
       ),
-      body: WeatherModel == null?  NoWeatherody() : WeatherInfoBody() ,
+      //<cubit,state> اساسيه
+      body: BlocBuilder<GetWeatherCubit,GetWeatherState>(
+        builder:(context,state){
+          if(state is GetWeatherInitial){
+            return NoWeatherody();
+          } else if (state is WeatherLoadedState){
+
+            return WeatherInfoBody();
+          }
+          else {
+            return Text('opps there is an error');
+          }
+        },
+      ),
     );
   }
 }

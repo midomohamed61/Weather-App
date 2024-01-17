@@ -9,16 +9,16 @@ class WeatherService {
   WeatherService(this.dio);
   Future<WeatherModel> getCurrentWeather({required String cityName}) async {
     try {
-      Response response= await dio.get(
-          '$baseUrl/forecast.json?key=$apiKey&q=$cityName&days=1');
-       WeatherModel weatherModel = WeatherModel.fromJson(response.data);
+      Response response = await dio
+          .get('$baseUrl/forecast.json?key=$apiKey&q=$cityName&days=1');
+      WeatherModel weatherModel = WeatherModel.fromJson(response.data);
 
-         return weatherModel;
-    } on DioException catch(e) {
-      final String errMessage = e.response?.data['error']['message']??'there is an error';
+      return weatherModel;
+    } on DioException catch (e) {
+      final String errMessage =
+          e.response?.data['error']['message'] ?? 'there is an error';
       throw Exception(errMessage);
-    }
-    catch (e){
+    } catch (e) {
       log(e.toString());
       throw Exception("try later there is an error");
     }

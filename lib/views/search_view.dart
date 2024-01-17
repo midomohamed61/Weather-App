@@ -2,8 +2,11 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather/model/weather_model.dart';
-import 'package:weather/services/weather_services.dart';
+
+import '../cubit/get_weather_cubit/get_weather_cubit.dart';
+
 
 class SearchView extends StatefulWidget {
   const SearchView({super.key});
@@ -24,6 +27,9 @@ class _SearchViewState extends State<SearchView> {
         child: Center(
           child: TextFormField(
             onChanged: (value) async {
+              //<Cubit> عشان احدد انهي cubit استخدمه
+              var getWeathercubit = BlocProvider.of<GetWeatherCubit>(context);
+              getWeathercubit.getWether(cityName: value);
               Navigator.of(context).pop();
               },
             decoration: InputDecoration(

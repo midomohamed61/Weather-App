@@ -6,7 +6,15 @@ abstract class GetWeatherState {}
 class GetWeatherInitial extends GetWeatherState {}
 //------------
 
-class WeatherLoadedState extends GetWeatherState {}
+class WeatherLoadedState extends GetWeatherState {
+  final WeatherModel weatherModel;
 
-class WeatherFailureState extends GetWeatherState {}
+  WeatherLoadedState(this.weatherModel);
+}
+
+class WeatherFailureState extends GetWeatherState {
+  final String errMessage;
+
+  WeatherFailureState(this.errMessage);
+}
 
