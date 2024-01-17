@@ -25,8 +25,8 @@ class _SearchViewState extends State<SearchView> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal:16),
         child: Center(
-          child: TextFormField(
-            onChanged: (value) async {
+          child: TextField(
+            onSubmitted: (value) async {
               //<Cubit> عشان احدد انهي cubit استخدمه
               var getWeathercubit = BlocProvider.of<GetWeatherCubit>(context);
               getWeathercubit.getWether(cityName: value);
