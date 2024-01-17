@@ -27,7 +27,7 @@ class _WeatherInfoBodyState extends State<WeatherInfoBody> {
             fontSize: 32,
           ),
           ),
-          Text("updated at ${weatherModel.data.hour}:${weatherModel.data.minute} : ${weatherModel.data.second}",
+          Text("updated at ${weatherModel.data.hour}:${weatherModel.data.minute}",
           style: TextStyle(
             fontSize: 24,
           ),

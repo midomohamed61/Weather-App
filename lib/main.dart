@@ -18,8 +18,11 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (BuildContext context) => GetWeatherCubit(),
-      child: const MaterialApp(
+      child:  MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          brightness: Brightness.dark
+        ),
         home: HomeView(),
       ),
     );
