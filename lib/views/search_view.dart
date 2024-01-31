@@ -29,7 +29,7 @@ class _SearchViewState extends State<SearchView> {
             onSubmitted: (value) async {
               //<Cubit> عشان احدد انهي cubit استخدمه
               var getWeathercubit = BlocProvider.of<GetWeatherCubit>(context);
-              getWeathercubit.getWether(cityName: value);
+              getWeathercubit.getWeather(cityName: value);
               Navigator.of(context).pop();
               },
             decoration: InputDecoration(
